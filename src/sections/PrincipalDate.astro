@@ -1,0 +1,38 @@
+<section class="animate-fade-in animate-delay-500 mt-32 mx-auto flex flex-col justify-center items-center text-center text-secondary">
+  <h2 class="uppercase text-5xl font-semibold">
+    31 de diciembre<span aria-hidden class="hidden md:inline mx-1">·</span><br aria-hidden class="block md:hidden" 
+  /> <span>
+  <script is:inline>
+    const END_DATE = 1735700399000
+    const d = new Date(END_DATE)
+    const date = d.toLocaleTimeString("es", {
+      hour: "2-digit",
+      minute: "2-digit"
+    })
+
+    // get current timezone
+    const tzOffset = d.getTimezoneOffset() / 60
+    const diff = tzOffset * -1
+    const gmt = diff > 0 ? `GMT+${Math.abs(diff)}` : `GMT-${Math.abs(diff)}`
+
+    const TZ_DICTIONARY = {
+      "GMT+1": "CET"
+    }
+
+    const tz = TZ_DICTIONARY[gmt] ?? gmt
+
+    const selfScript = document.currentScript
+    selfScript.parentNode.innerHTML = `${date}H ${tz}` 
+  </script>
+  </span>
+  </h2>
+
+  <h3 class="text-2xl font-medium flex flex-col max-w-sm mt-6">
+    <span>Evento de Presentación</span>
+    <span>Teatro Victoria (Barcelona)</span>
+  </h3>
+
+  <a class={`
+ border-secondary border-2 font-medium uppercase text-lg px-4 py-1 mt-8 hover:bg-slate-800 hover:scale-125 transition inline-block`} href="">Entradas agotadas
+  </a>
+</section>
